@@ -23,12 +23,13 @@ This project demonstrates detection of DNS tunneling (dnscat2) and C2 channels f
 
 ## Anomaly Score Calculation
 Each packet’s anomaly score is computed as:
+
 score = 0.4 * dns_len + 0.4 * dns_entropy + 0.2 * tcp_payload_present
 
 - Higher score → more likely to be part of a DNS tunnel.
 - Weights emphasize DNS length and entropy while still considering payload presence.
 
-  | Adjustment | Purpose |
+| Adjustment | Purpose |
 |------------|---------|
 | **Threshold tuning** | Lower → more sensitivity, may increase false positives. Higher → fewer false positives, may miss subtle tunnels. |
 | **Weight adjustment** | Adjust relative importance of features (e.g., increase entropy weight if encoding dominates). |
