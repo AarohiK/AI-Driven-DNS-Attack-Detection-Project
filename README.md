@@ -21,7 +21,7 @@ This project demonstrates detection of DNS tunneling (dnscat2) and C2 channels f
 | **DNS Query Entropy (`dns_entropy`)** | Shannon entropy of query string | Randomized or encoded queries have high entropy compared to normal domain names. |
 | **TCP Payload Presence (`tcp_payload_present`)** | Binary flag: 1 if payload exists, 0 otherwise | Malicious DNS tunnels may carry additional data in TCP/UDP payloads. |
 
-## Anomaly Score Calculation
+## Anomaly Score Calculation = simple predictive model
 Each packet’s anomaly score is computed as:
 
 score = 0.4 * dns_len + 0.4 * dns_entropy + 0.2 * tcp_payload_present
